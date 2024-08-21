@@ -1,73 +1,83 @@
-# NewsletterGen Crew with GUI
+## NewsletterGen Crew: An AI-Powered Newsletter Generation System
 
-Welcome to the NewsletterGen Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+This project showcases an autonomous newsletter generation system using the crewAI framework. It utilizes multiple specialized AI agents, each playing a crucial role in the research, curation, and compilation of news into a polished HTML newsletter.
 
-## Installation
+### Features
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. This project uses [Poetry](https://python-poetry.org/) for dependency management and package handling, offering a seamless setup and execution experience.
+* **Automated News Gathering:** The system actively searches for the latest news on a specified topic, using the Exa API for comprehensive and up-to-date information.
+* **Intelligent Content Curation:** An "Editor-in-Chief" agent analyzes the gathered news, rewrites headlines for maximum engagement, adds insightful context, and prioritizes stories for optimal reader experience.
+* **Seamless HTML Generation:** A dedicated "Newsletter Compiler" agent takes the curated content and dynamically populates a user-provided HTML template, ensuring a consistent and visually appealing newsletter.
+* **User-Friendly GUI:**  Built with Streamlit, the intuitive interface allows users to easily input the desired topic, personalize with a message, and trigger the newsletter generation process. 
 
-First, if you haven't already, install Poetry:
+### AI Agents and Their Roles
 
-```bash
-pip install poetry
-```
+* **Researcher:**
+    * **Role:** Scours the web for the most relevant and recent news articles on the given topic.
+    * **Tools:**  Leverages the 'SearchAndContents', 'FindSimilar', and 'GetContents' tools powered by the Exa API to find, filter, and retrieve news content.
 
-Next, navigate to your project directory and install the dependencies:
+* **Editor:**
+    * **Role:** Acts as the editor-in-chief, refining the raw news into a compelling narrative.
+    * **Tasks:**
+        * Crafts attention-grabbing headlines.
+        * Provides insightful analysis and explains the significance of each news story.
+        * Orders the news stories strategically for maximum impact.
+        * Verifies source accuracy and relevance to the topic.
 
-1. First lock the dependencies and then install them:
-```bash
-poetry lock
-```
-```bash
-poetry install
-```
-### Customizing
+* **Designer:**
+    * **Role:**  Responsible for assembling the final HTML newsletter.
+    * **Tasks:**
+        * Fetches the curated news from the Editor.
+        * Injects the content into the designated placeholders within the HTML template.
+        * Ensures the personal message from the user is seamlessly integrated.
 
-**Add your `OPENAI_API_KEY` into the `.env` file**
+### Architecture and Workflow
 
-- Modify `src/newsletter_gen/config/agents.yaml` to define your agents
-- Modify `src/newsletter_gen/config/tasks.yaml` to define your tasks
-- Modify `src/newsletter_gen/crew.py` to add your own logic, tools and specific args
-- Modify `src/newsletter_gen/main.py` to add custom inputs for your agents and tasks
+1. **User Input:** The user provides the newsletter topic and an optional personal message through the Streamlit GUI.
+2. **Research Phase:** The 'researcher' agent springs into action, utilizing the Exa API tools to find and summarize relevant news articles.
+3. **Editorial Process:** The 'editor' agent steps in, critically analyzing the gathered news, enhancing headlines, adding context, and prioritizing the most impactful stories.
+4. **Newsletter Compilation:**  The 'designer' agent takes the curated content and carefully places it within the structure of the provided HTML template.
+5. **Output:** The fully formed HTML newsletter is ready for download through the GUI, prepared to be sent to subscribers.
 
-## Running the Project
+### Installation and Setup
 
-To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
+1. **Prerequisites:**
+   * Python 3.10 - 3.13
+   * Poetry (https://python-poetry.org/) 
+   * Accounts for required APIs: 
+      * OpenAI (https://beta.openai.com/account/api-keys) 
+      * Exa (https://exa.store/signup)
+      * Google Cloud (https://cloud.google.com/api-keys) (Optional, only if using Google's LLMs)
 
-```bash
-<<<<<<< HEAD
-=======
-$ crewai run
-```
-or
-```bash
->>>>>>> f7be447a838e45a740142298d880a8f1bc4c523c
-poetry run newsletter_gen
-```
+2. **Environment Setup:**
+   * Clone this repository.
+   * Create a `.env` file in the root directory and populate it with your API keys:
+     ```
+     OPENAI_API_KEY=YOUR_OPENAI_API_KEY
+     EXA_API_KEY=YOUR_EXA_API_KEY
+     GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY 
+     ```
+   * Install project dependencies:
+     ```bash
+     poetry install
+     ```
+   
+3. **Customization:**
+    * **Agent Configuration (`src/newsletter_gen/config/agents.yaml`):** Fine-tune the roles, goals, and backstories of your AI agents.
+    * **Task Definition (`src/newsletter_gen/config/tasks.yaml`):**  Specify the instructions and expected outputs for each task your agents perform.
+    * **HTML Template (`src/newsletter_gen/config/newsletter_template.html`):** Design the structure and layout of your newsletter, including placeholders where AI-generated content will be inserted.
 
-This command initializes the newsletter-gen Crew, assembling the agents and assigning them tasks as defined in your configuration.
+4. **Running the Application:**
+   ```bash
+   poetry run streamlit run src/gui/app.py
+   ```
+   Access the interactive Streamlit GUI in your web browser (usually `http://localhost:8501/`).
 
-<<<<<<< HEAD
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folser
-=======
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
->>>>>>> f7be447a838e45a740142298d880a8f1bc4c523c
+### Contributing
 
-## Understanding Your Crew
+Contributions, suggestions, and feedback are always welcome! Please open an issue or submit a pull request.
 
-The newsletter-gen Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
 
-## Support
 
-For support, questions, or feedback regarding the NewsletterGen Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-<<<<<<< HEAD
-- [Joing our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat wtih our docs](https://chatg.pt/DWjSBZn)
-=======
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
->>>>>>> f7be447a838e45a740142298d880a8f1bc4c523c
 
-Let's create wonders together with the power and simplicity of crewAI.
+
+
