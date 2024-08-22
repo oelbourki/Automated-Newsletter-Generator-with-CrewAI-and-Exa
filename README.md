@@ -35,23 +35,12 @@ poetry install
 To kickstart your crew of AI agents and begin task execution, run this from the root folder of your project:
 
 ```bash
-<<<<<<< HEAD
-=======
-$ crewai run
-```
-or
-```bash
->>>>>>> f7be447a838e45a740142298d880a8f1bc4c523c
 poetry run newsletter_gen
 ```
 
 This command initializes the newsletter-gen Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
-<<<<<<< HEAD
 This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folser
-=======
-This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
->>>>>>> f7be447a838e45a740142298d880a8f1bc4c523c
 
 ## Understanding Your Crew
 
@@ -62,12 +51,7 @@ The newsletter-gen Crew is composed of multiple AI agents, each with unique role
 For support, questions, or feedback regarding the NewsletterGen Crew or crewAI.
 - Visit our [documentation](https://docs.crewai.com)
 - Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-<<<<<<< HEAD
 - [Joing our Discord](https://discord.com/invite/X4JWnZnxPb)
 - [Chat wtih our docs](https://chatg.pt/DWjSBZn)
-=======
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
->>>>>>> f7be447a838e45a740142298d880a8f1bc4c523c
 
 Let's create wonders together with the power and simplicity of crewAI.
