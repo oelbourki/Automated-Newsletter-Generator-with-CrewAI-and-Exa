@@ -2,7 +2,7 @@
 name = "newsletter_gen"
 version = "0.1.0"
 description = "newsletter-gen using crewAI"
-authors = ["Your Name <you@example.com>"]
+authors = ["Otmane El Bourki <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.13"

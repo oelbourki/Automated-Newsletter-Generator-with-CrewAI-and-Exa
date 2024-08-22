@@ -47,7 +47,7 @@ class NewsletterGenUI:
                 """
             )
 
-            st.text_input("Topic", key="topic", placeholder="USA Stock Market")
+            st.text_input("Topic", key="topic", placeholder="Morocco Stock Market")
 
             st.text_area(
                 "Your personal message (to include at the top of the newsletter)",
